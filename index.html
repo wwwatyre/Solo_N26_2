@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="robots" content="index,follow" />
+
+  <title>Contatto tramite Telegram</title>
+  <meta name="description" content="Apri Telegram per ricevere maggiori informazioni." />
+
+  <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
+
+  <!-- Конфигурация загружается до основного скрипта -->
+  <style>
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text: #152033;
+  --muted: #667085;
+  --line: #e7ebf1;
+  --telegram: #229ed9;
+  --telegram-hover: #168bc2;
+  --accent: #1f8f6a;
+  --shadow: 0 24px 70px rgba(24, 39, 75, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(34, 158, 217, 0.13), transparent 34rem),
+    radial-gradient(circle at bottom right, rgba(31, 143, 106, 0.10), transparent 30rem),
+    var(--bg);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 22px;
+  padding: 28px 16px;
+}
+
+.card {
+  width: min(100%, 470px);
+  position: relative;
+  overflow: hidden;
+  padding: 34px 28px 26px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: linear-gradient(90deg, #229ed9, #1f8f6a);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  color: #176b4f;
+  background: #ecfdf3;
+  border: 1px solid #c8f1d8;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12);
+}
+
+.avatar {
+  width: 94px;
+  height: 94px;
+  display: grid;
+  place-items: center;
+  margin: 22px auto 16px;
+  color: #fff;
+  background: linear-gradient(145deg, #172033, #30415e);
+  border: 5px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 14px 32px rgba(21, 32, 51, 0.22);
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(27px, 7vw, 37px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.subtitle {
+  max-width: 390px;
+  margin: 15px auto 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.benefits {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0;
+  padding: 0;
+  text-align: left;
+  list-style: none;
+}
+
+.benefits li {
+  position: relative;
+  padding: 13px 14px 13px 42px;
+  color: #344054;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.benefits li::before {
+  content: "✓";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  color: #fff;
+  background: var(--accent);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.telegram-button {
+  width: 100%;
+  min-height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 15px 20px;
+  color: #fff;
+  background: var(--telegram);
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 14px 26px rgba(34, 158, 217, 0.27);
+  cursor: pointer;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 800;
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.telegram-button:hover {
+  background: var(--telegram-hover);
+  box-shadow: 0 18px 32px rgba(34, 158, 217, 0.32);
+  transform: translateY(-1px);
+}
+
+.telegram-button:active {
+  transform: translateY(1px) scale(0.995);
+}
+
+.telegram-button:focus-visible {
+  outline: 4px solid rgba(34, 158, 217, 0.22);
+  outline-offset: 3px;
+}
+
+.telegram-button svg {
+  width: 23px;
+  height: 23px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.microcopy {
+  margin: 11px 0 0;
+  color: #98a2b3;
+  font-size: 12px;
+}
+
+.notice {
+  margin-top: 22px;
+  padding-top: 18px;
+  color: #7b8494;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  color: #7b8494;
+  font-size: 12px;
+}
+
+.footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 420px) {
+  .page {
+    padding: 18px 12px;
+  }
+
+  .card {
+    padding: 30px 18px 22px;
+    border-radius: 23px;
+  }
+
+  .benefits li {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="page-title">
+      <div class="status-pill">
+        <span class="status-dot" aria-hidden="true"></span>
+        Online
+      </div>
+
+      <div class="avatar" aria-hidden="true">
+        <span id="avatar-text">N</span>
+      </div>
+
+      <p class="eyebrow" id="eyebrow">Partner indipendente</p>
+      <h1 id="page-title">Assistenza N26 su Telegram</h1>
+      <p class="subtitle" id="subtitle">
+        Scrivici su Telegram per ricevere maggiori informazioni e assistenza.
+      </p>
+
+      <ul class="benefits" id="benefits">
+        <li>Risposta rapida in chat</li>
+        <li>Informazioni su registrazione e condizioni</li>
+        <li>Senza impegno</li>
+      </ul>
+
+      <button class="telegram-button" id="telegram-button" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21.7 2.3c-.3-.3-.8-.4-1.3-.2L2.7 9.2c-.7.3-1.1.8-1 1.4.1.6.6 1 1.3 1.2l4.6 1.4 1.8 5.4c.2.6.7 1 1.3 1h.1c.5 0 .9-.2 1.2-.6l2.6-3.2 4.7 3.5c.4.3.9.4 1.3.2.4-.2.7-.6.8-1.1l2.9-14.9c.1-.5-.1-.9-.4-1.2ZM9.2 12.1l8.7-5.4-7.1 6.6-.4 3.1-1.2-4.3Z"/>
+        </svg>
+        <span id="button-text">Scrivi su Telegram</span>
+      </button>
+
+      <p class="microcopy" id="microcopy">
+        Premendo il pulsante si aprirà Telegram.
+      </p>
+
+      <div class="notice" id="notice">
+        Questa è una pagina informativa indipendente e non è il sito ufficiale di N26.
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a href="#" id="privacy-link">Informativa sulla privacy</a>
+      <span>•</span>
+      <span id="footer-text">© 2026</span>
+    </footer>
+  </main>
+
+  <noscript>
+    Attiva JavaScript nel browser per aprire Telegram.
+  </noscript>
+
+  <script>
+/*
+  МЕНЯЙТЕ ТОЛЬКО ЭТОТ ФАЙЛ.
+
+  ВАЖНО:
+  1) telegramUsername — без символа @.
+  2) metaPixelId — только числовой ID пикселя.
+  3) primaryEvent — событие, под которое оптимизируется реклама.
+     Поддерживаемые стандартные события:
+     Lead, Contact, Subscribe, CompleteRegistration, ViewContent.
+
+  Не размещайте здесь access token от Meta Conversion API.
+  GitHub Pages — публичный статический хостинг, токен увидит любой посетитель.
+*/
+
+window.LANDING_CONFIG = {
+  telegramUsername: "Partner_N26",
+  telegramMessage: "Ciao! Vorrei ricevere maggiori informazioni.",
+
+  metaPixelId: "1312869181016495",
+
+  // Основное событие по клику на кнопку:
+  primaryEvent: "Contact",
+
+  // Дополнительные события обычно оставляйте пустыми.
+  // Не стоит отправлять сразу Lead + Subscribe + Contact за одно действие:
+  // это ухудшает качество данных и может мешать обучению рекламы.
+  additionalEvents: [],
+
+  // Событие при открытии страницы:
+  fireViewContentOnLoad: true,
+
+  content: {
+    title: "Assistenza N26 su Telegram",
+    eyebrow: "Partner indipendente",
+    subtitle: "Scrivici su Telegram per ricevere maggiori informazioni e assistenza.",
+    buttonText: "Scrivi su Telegram",
+    microcopy: "Premendo il pulsante si aprirà Telegram.",
+    avatarText: "N",
+    benefits: [
+      "Risposta rapida in chat",
+      "Informazioni su registrazione e condizioni",
+      "Senza impegno"
+    ],
+    disclaimer: "Questa è una pagina informativa indipendente e non è il sito ufficiale di N26.",
+    privacyUrl: "#",
+    footerText: "© 2026"
+  }
+};
+
+  </script>
+
+  <script>
+(() => {
+  "use strict";
+
+  const config = window.LANDING_CONFIG || {};
+
+  const ALLOWED_EVENTS = new Set([
+    "Lead",
+    "Contact",
+    "Subscribe",
+    "CompleteRegistration",
+    "ViewContent"
+  ]);
+
+  function text(id, value) {
+    const element = document.getElementById(id);
+    if (element && typeof value === "string") {
+      element.textContent = value;
+    }
+  }
+
+  function applyContent() {
+    const content = config.content || {};
+
+    text("page-title", content.title);
+    text("eyebrow", content.eyebrow);
+    text("subtitle", content.subtitle);
+    text("button-text", content.buttonText);
+    text("microcopy", content.microcopy);
+    text("avatar-text", content.avatarText);
+    text("notice", content.disclaimer);
+    text("footer-text", content.footerText);
+
+    const benefits = document.getElementById("benefits");
+    if (benefits && Array.isArray(content.benefits)) {
+      benefits.innerHTML = "";
+      content.benefits.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = String(item);
+        benefits.appendChild(li);
+      });
+    }
+
+    const privacyLink = document.getElementById("privacy-link");
+    if (privacyLink && typeof content.privacyUrl === "string") {
+      privacyLink.href = content.privacyUrl;
+      if (content.privacyUrl === "#") {
+        privacyLink.addEventListener("click", (event) => event.preventDefault());
+      }
+    }
+
+    if (content.title) {
+      document.title = content.title;
+    }
+  }
+
+  function validPixelId(value) {
+    return typeof value === "string" && /^\d{5,25}$/.test(value.trim());
+  }
+
+  function initMetaPixel() {
+    const pixelId = String(config.metaPixelId || "").trim();
+
+    if (!validPixelId(pixelId)) {
+      console.info("Meta Pixel non avviato: inserisci un metaPixelId numerico.");
+      return false;
+    }
+
+    if (window.fbq) {
+      return true;
+    }
+
+    /* Официальный базовый загрузчик Meta Pixel */
+    !(function(f,b,e,v,n,t,s) {
+      if (f.fbq) return;
+      n = f.fbq = function() {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = true;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = true;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+
+    window.fbq("init", pixelId);
+    window.fbq("track", "PageView");
+
+    if (config.fireViewContentOnLoad === true) {
+      window.fbq("track", "ViewContent", {
+        content_name: "Telegram landing",
+        content_category: "messaging"
+      });
+    }
+
+    return true;
+  }
+
+  function trackEvent(eventName) {
+    if (!window.fbq || !ALLOWED_EVENTS.has(eventName)) {
+      return;
+    }
+
+    window.fbq("track", eventName, {
+      content_name: "Telegram contact",
+      content_category: "messaging",
+      destination: "telegram"
+    });
+  }
+
+  function buildTelegramUrls() {
+    const username = String(config.telegramUsername || "")
+      .trim()
+      .replace(/^@/, "");
+
+    const message = encodeURIComponent(String(config.telegramMessage || ""));
+
+    if (!/^[A-Za-z0-9_]{5,32}$/.test(username)) {
+      throw new Error("Inserisci un nome utente Telegram valido.");
+    }
+
+    return {
+      app: `tg://resolve?domain=${encodeURIComponent(username)}&text=${message}`,
+      web: `https://t.me/${encodeURIComponent(username)}?text=${message}`
+    };
+  }
+
+  function openTelegram() {
+    let urls;
+
+    try {
+      urls = buildTelegramUrls();
+    } catch (error) {
+      alert(error.message);
+      return;
+    }
+
+    const primaryEvent = String(config.primaryEvent || "Contact");
+    trackEvent(ALLOWED_EVENTS.has(primaryEvent) ? primaryEvent : "Contact");
+
+    if (Array.isArray(config.additionalEvents)) {
+      config.additionalEvents
+        .filter((eventName) => ALLOWED_EVENTS.has(eventName))
+        .forEach(trackEvent);
+    }
+
+    // Сначала пытаемся открыть приложение Telegram.
+    window.location.href = urls.app;
+
+    // Если приложение не открылось, переходим в веб-версию.
+    window.setTimeout(() => {
+      window.location.href = urls.web;
+    }, 900);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    applyContent();
+    initMetaPixel();
+
+    const button = document.getElementById("telegram-button");
+    if (button) {
+      button.addEventListener("click", openTelegram);
+    }
+  });
+})();
+
+  </script>
+
+</body>
+</html>
