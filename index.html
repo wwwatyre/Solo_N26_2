@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="it">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="robots" content="index,follow" />
 
-  <title>Contatto tramite Telegram</title>
-  <meta name="description" content="Apri Telegram per ricevere maggiori informazioni." />
+  <title>Contacto por Telegram</title>
+  <meta name="description" content="Accede a Telegram para recibir más información." />
 
   <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
 
@@ -284,50 +284,50 @@ h1 {
     <section class="card" aria-labelledby="page-title">
       <div class="status-pill">
         <span class="status-dot" aria-hidden="true"></span>
-        Online
+        En línea
       </div>
 
       <div class="avatar" aria-hidden="true">
         <span id="avatar-text">N</span>
       </div>
 
-      <p class="eyebrow" id="eyebrow">Partner indipendente</p>
-      <h1 id="page-title">Assistenza N26 su Telegram</h1>
+      <p class="eyebrow" id="eyebrow">Socio independiente</p>
+      <h1 id="page-title">Atención N26 por Telegram</h1>
       <p class="subtitle" id="subtitle">
-        Scrivici su Telegram per ricevere maggiori informazioni e assistenza.
+        Escríbenos por Telegram para recibir más información y resolver tus dudas.
       </p>
 
       <ul class="benefits" id="benefits">
-        <li>Risposta rapida in chat</li>
-        <li>Informazioni su registrazione e condizioni</li>
-        <li>Senza impegno</li>
+        <li>Respuesta rápida por mensaje privado</li>
+        <li>Información sobre el registro y las condiciones</li>
+        <li>Sin compromiso</li>
       </ul>
 
       <button class="telegram-button" id="telegram-button" type="button">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M21.7 2.3c-.3-.3-.8-.4-1.3-.2L2.7 9.2c-.7.3-1.1.8-1 1.4.1.6.6 1 1.3 1.2l4.6 1.4 1.8 5.4c.2.6.7 1 1.3 1h.1c.5 0 .9-.2 1.2-.6l2.6-3.2 4.7 3.5c.4.3.9.4 1.3.2.4-.2.7-.6.8-1.1l2.9-14.9c.1-.5-.1-.9-.4-1.2ZM9.2 12.1l8.7-5.4-7.1 6.6-.4 3.1-1.2-4.3Z"/>
         </svg>
-        <span id="button-text">Scrivi su Telegram</span>
+        <span id="button-text">Escribir por Telegram</span>
       </button>
 
       <p class="microcopy" id="microcopy">
-        Premendo il pulsante si aprirà Telegram.
+        Al pulsar, se abrirá Telegram.
       </p>
 
       <div class="notice" id="notice">
-        Questa è una pagina informativa indipendente e non è il sito ufficiale di N26.
+        Esta es una página informativa independiente y no es el sitio web oficial de N26.
       </div>
     </section>
 
     <footer class="footer">
-      <a href="#" id="privacy-link">Informativa sulla privacy</a>
+      <a href="#" id="privacy-link">Política de privacidad</a>
       <span>•</span>
       <span id="footer-text">© 2026</span>
     </footer>
   </main>
 
   <noscript>
-    Attiva JavaScript nel browser per aprire Telegram.
+    Activa JavaScript en tu navegador para abrir Telegram.
   </noscript>
 
   <script>
@@ -339,20 +339,20 @@ h1 {
   2) metaPixelId — только числовой ID пикселя.
   3) primaryEvent — событие, под которое оптимизируется реклама.
      Поддерживаемые стандартные события:
-     Lead, Contact, Subscribe, CompleteRegistration, ViewContent.
+     Lead, Contact, Subscribe, CompleteRegistration, SubmitApplication, ViewContent.
 
   Не размещайте здесь access token от Meta Conversion API.
   GitHub Pages — публичный статический хостинг, токен увидит любой посетитель.
 */
 
 window.LANDING_CONFIG = {
-  telegramUsername: "Partner_N26",
-  telegramMessage: "Ciao! Vorrei ricevere maggiori informazioni.",
+  telegramUsername: "@Solo_N26",
+  telegramMessage: "¡Hola! Quiero recibir más información.",
 
-  metaPixelId: "1312869181016495",
+  metaPixelId: "778258931232821",
 
   // Основное событие по клику на кнопку:
-  primaryEvent: "Contact",
+  primaryEvent: "SubmitApplication",
 
   // Дополнительные события обычно оставляйте пустыми.
   // Не стоит отправлять сразу Lead + Subscribe + Contact за одно действие:
@@ -363,18 +363,18 @@ window.LANDING_CONFIG = {
   fireViewContentOnLoad: true,
 
   content: {
-    title: "Assistenza N26 su Telegram",
-    eyebrow: "Partner indipendente",
-    subtitle: "Scrivici su Telegram per ricevere maggiori informazioni e assistenza.",
-    buttonText: "Scrivi su Telegram",
-    microcopy: "Premendo il pulsante si aprirà Telegram.",
+    title: "Atención N26 por Telegram",
+    eyebrow: "Socio independiente",
+    subtitle: "Escríbenos por Telegram para recibir más información y resolver tus dudas.",
+    buttonText: "Escribir por Telegram",
+    microcopy: "Al pulsar, se abrirá Telegram.",
     avatarText: "N",
     benefits: [
-      "Risposta rapida in chat",
-      "Informazioni su registrazione e condizioni",
-      "Senza impegno"
+      "Respuesta rápida por mensaje privado",
+      "Información sobre el registro y las condiciones",
+      "Sin compromiso"
     ],
-    disclaimer: "Questa è una pagina informativa indipendente e non è il sito ufficiale di N26.",
+    disclaimer: "Esta es una página informativa independiente y no es el sitio web oficial de N26.",
     privacyUrl: "#",
     footerText: "© 2026"
   }
@@ -393,7 +393,8 @@ window.LANDING_CONFIG = {
     "Contact",
     "Subscribe",
     "CompleteRegistration",
-    "ViewContent"
+    "ViewContent",
+    "SubmitApplication"
   ]);
 
   function text(id, value) {
@@ -446,7 +447,7 @@ window.LANDING_CONFIG = {
     const pixelId = String(config.metaPixelId || "").trim();
 
     if (!validPixelId(pixelId)) {
-      console.info("Meta Pixel non avviato: inserisci un metaPixelId numerico.");
+      console.info("Meta Pixel no se ha iniciado: indica un metaPixelId numérico.");
       return false;
     }
 
@@ -505,7 +506,7 @@ window.LANDING_CONFIG = {
     const message = encodeURIComponent(String(config.telegramMessage || ""));
 
     if (!/^[A-Za-z0-9_]{5,32}$/.test(username)) {
-      throw new Error("Inserisci un nome utente Telegram valido.");
+      throw new Error("Indica un nombre de usuario de Telegram válido.");
     }
 
     return {
@@ -524,8 +525,8 @@ window.LANDING_CONFIG = {
       return;
     }
 
-    const primaryEvent = String(config.primaryEvent || "Contact");
-    trackEvent(ALLOWED_EVENTS.has(primaryEvent) ? primaryEvent : "Contact");
+    const primaryEvent = String(config.primaryEvent || "SubmitApplication");
+    trackEvent(ALLOWED_EVENTS.has(primaryEvent) ? primaryEvent : "SubmitApplication");
 
     if (Array.isArray(config.additionalEvents)) {
       config.additionalEvents
