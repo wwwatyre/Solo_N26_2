@@ -288,18 +288,18 @@ h1 {
       </div>
 
       <div class="avatar" aria-hidden="true">
-        <span id="avatar-text">i</span>
+        <span id="avatar-text">N</span>
       </div>
 
       <p class="eyebrow" id="eyebrow">Contacto directo</p>
-      <h1 id="page-title">¿Tienes alguna pregunta?</h1>
+      <h1 id="page-title">Contacto por Telegram</h1>
       <p class="subtitle" id="subtitle">
         Escríbenos por Telegram para recibir más información y resolver tus dudas.
       </p>
 
       <ul class="benefits" id="benefits">
         <li>Respuesta rápida por mensaje privado</li>
-        <li>Información clara sobre el proceso y las condiciones</li>
+        <li>Información sobre el registro y las condiciones</li>
         <li>Sin compromiso</li>
       </ul>
 
@@ -315,7 +315,7 @@ h1 {
       </p>
 
       <div class="notice" id="notice">
-        Esta página facilita el contacto directo por Telegram. La información se proporciona de forma privada durante la conversación.
+        Utiliza el botón para iniciar una conversación privada por Telegram.
       </div>
     </section>
 
@@ -339,7 +339,7 @@ h1 {
   2) metaPixelId — только числовой ID пикселя.
   3) primaryEvent — событие, под которое оптимизируется реклама.
      Поддерживаемые стандартные события:
-     Lead, Contact, Subscribe, CompleteRegistration, ViewContent.
+     Lead, Contact, SubmitApplication, Subscribe, CompleteRegistration, ViewContent.
 
   Не размещайте здесь access token от Meta Conversion API.
   GitHub Pages — публичный статический хостинг, токен увидит любой посетитель.
@@ -368,13 +368,13 @@ window.LANDING_CONFIG = {
     subtitle: "Escríbenos por Telegram para recibir más información y resolver tus dudas.",
     buttonText: "Escribir por Telegram",
     microcopy: "Al pulsar, se abrirá Telegram.",
-    avatarText: "i",
+    avatarText: "T",
     benefits: [
       "Respuesta rápida por mensaje privado",
-      "Información clara sobre el proceso y las condiciones",
+      "Información sobre el registro y las condiciones",
       "Sin compromiso"
     ],
-    disclaimer: "Esta página facilita el contacto directo por Telegram. La información se proporciona de forma privada durante la conversación.",
+    disclaimer: "Utiliza el botón para iniciar una conversación privada por Telegram.",
     privacyUrl: "#",
     footerText: "© 2026"
   }
@@ -391,6 +391,7 @@ window.LANDING_CONFIG = {
   const ALLOWED_EVENTS = new Set([
     "Lead",
     "Contact",
+    "SubmitApplication",
     "Subscribe",
     "CompleteRegistration",
     "ViewContent"
